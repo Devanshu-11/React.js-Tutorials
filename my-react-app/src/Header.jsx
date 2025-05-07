@@ -1,8 +1,10 @@
+import {LOGO_URL} from "./utils/constants";
+
 const Header=()=>{
   return(
     <div className="header">
       <div className="logo-container">
-        <img className="logo" src="https://cdn.logojoy.com/wp-content/uploads/2018/05/01105943/1954.png" />
+        <img className="logo" src={LOGO_URL} />
       </div>
     
       <div className="nav-items">
