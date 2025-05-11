@@ -8,7 +8,7 @@
 // Props-
 // Props means Properties and it this, we basically pass data from the parent component to child component and it simply like passing an argument to a function
 
-// Use State Hook- When a state variable changes, react will re-render my component
+// useState Hook- When a state variable changes, react will re-render my component
 // It helps to keep track of the state in a function component 
 // it basically returns 2 values-
 // 1- Initial State 
@@ -20,3 +20,16 @@
 // 2-It do not directly interact with the browser dom on every update
 // 3- When we make changes, it creates a virtual dom of it and compare it with the previous virtual dom using a process called diffing
 // 4- If it see that there is some changes occurs in it, it modifies only that changed part in the real dom
+
+// MonoLith Architecture-
+// It is a single unified unit, means all the functionality of application (eg- user interface, business logic) is tightly integrated and runs as a single service
+
+// Microservice Architecture-
+// It breaks the application into smaller, independent services. Here Each service communicate with each other via api and it follows a single responsibility principle where each service has its own job
+
+// useEffect Hook- It basically allows us to perform the side effects in the components
+// Some of the side Effects are- fetching data etc 
+// It has 2 arguments in which the 1st argument is a callback function and 2nd argument is dependency
+
+// Shimmer Ui- It basically refers to the concept of displaying a skeleton screen or placeholder layout while the actual data is being fetched
+// It is used in mobile and web development to improve user experience during data loading
