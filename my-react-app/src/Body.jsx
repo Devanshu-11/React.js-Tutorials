@@ -2,6 +2,7 @@ import RestaurantCard from './RestaurantCard.jsx';
 import reslist from './utils/mockData.js';
 import {useState, useEffect} from 'react';
 import Shimmer from './Shimmer.jsx';
+import {Link} from 'react-router-dom';
 
 const Body=()=>{
     // When a state variable changes, react triggers re-rendering of the component
@@ -70,7 +71,9 @@ const Body=()=>{
                 {/* Here we use key to map to avoid unexpected behaviour of rendering */}
                 {
                     filteredRestaurant.map((restaurant)=>
-                        <RestaurantCard key={restaurant?.info?.id} resData={restaurant}/>
+                        <Link key={restaurant?.info?.id} to={"/restaurants/"+restaurant?.info?.id}>
+                            <RestaurantCard resData={restaurant}/>
+                        </Link>
                     )
                 }
 

@@ -29,7 +29,15 @@
 
 // useEffect Hook- It basically allows us to perform the side effects in the components
 // Some of the side Effects are- fetching data etc 
-// It has 2 arguments in which the 1st argument is a callback function and 2nd argument is dependency
+// It has 2 arguments in which the 1st argument is a callback function and 2nd argument is dependency array
 
 // Shimmer Ui- It basically refers to the concept of displaying a skeleton screen or placeholder layout while the actual data is being fetched
 // It is used in mobile and web development to improve user experience during data loading
+
+// We should not use a tag in reactJs because the whole page gets reload
+// instead of a tag, we should use link component
+// Reactjs is a single page application because there is only page and when we do routing, instead of reloading the whole page, it just interchange the components 
+
+// There are 2 types of routing-
+// 1- client side routing 
+// 2- server side routing
