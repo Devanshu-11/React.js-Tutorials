@@ -115,3 +115,12 @@
     background-color: black;
     color: white;
 }
+
+.user-card{
+    padding: 10px;
+    border: 1px solid black;
+}
+
+.class-btn{
+    padding: 5px;
+}

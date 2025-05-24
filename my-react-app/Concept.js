@@ -41,3 +41,8 @@
 // There are 2 types of routing-
 // 1- client side routing 
 // 2- server side routing
+
+// phase of react Life cycle-
+// 1- Mounting phase- A component is created and it is inserted into the dom 
+// 2- Updating phase- A component is re-rendered due to changes in props or state 
+// 3- Unmounting phase- A component is removed from the dom 
