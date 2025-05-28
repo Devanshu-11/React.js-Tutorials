@@ -1,21 +1,25 @@
 import {useState,useEffect} from "react";
 import Shimmer from "./Shimmer.jsx";
 import {useParams} from "react-router-dom";
+import useRestaurantMenu from "./utils/useRestaurantMenu.jsx";
 
 const RestaurantMenu=()=>{
-    const [resInfo, setResInfo]=useState(null);
+    // const [resInfo, setResInfo]=useState(null);
     const {resId}=useParams();
 
-    const fetchMenu=async()=>{
-        const data=await fetch("https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=12.9271111&lng=77.626605&restaurantId="+resId+"&catalog_qa=undefined&submitAction=ENTER");
-        const json=await data.json();
-        setResInfo(json.data);
-        console.log(json);
-    }
+    // const fetchMenu=async()=>{
+    //     const data=await fetch("https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=12.9271111&lng=77.626605&restaurantId="+resId+"&catalog_qa=undefined&submitAction=ENTER");
+    //     const json=await data.json();
+    //     setResInfo(json.data);
+    //     console.log(json);
+    // }
 
-    useEffect(()=>{
-        fetchMenu();
-    },[]);
+    // useEffect(()=>{
+    //     fetchMenu();
+    // },[]);
+
+    // Creating the Custom Hook
+    const resInfo=useRestaurantMenu(resId);
 
     if(resInfo===null){
         return <Shimmer />

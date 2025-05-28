@@ -45,4 +45,10 @@
 // phase of react Life cycle-
 // 1- Mounting phase- A component is created and it is inserted into the dom 
 // 2- Updating phase- A component is re-rendered due to changes in props or state 
-// 3- Unmounting phase- A component is removed from the dom 
+// 3- Unmounting phase- A component is removed from the dom
+
+// Single Responsibility Principle-
+// It states that the each component should only have a single principle
+
+// Modularity-
+// We should always break down the code into small small modules so that code becomes more maintainable and more readable

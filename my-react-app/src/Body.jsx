@@ -3,6 +3,7 @@ import reslist from './utils/mockData.js';
 import {useState, useEffect} from 'react';
 import Shimmer from './Shimmer.jsx';
 import {Link} from 'react-router-dom';
+import useOnlineStatus from './utils/useOnlineStatus.jsx';
 
 const Body=()=>{
     // When a state variable changes, react triggers re-rendering of the component
@@ -25,43 +26,50 @@ const Body=()=>{
         fetchData();
     },[]);
     
+    const onlineStatus=useOnlineStatus();
+    if(onlineStatus===false){
+        return(
+            <h1>You are Offline, Please Check your internet connection</h1>
+        )
+    }
 
     // Conditional Rendering- Rendering based on condition
     return listOfRestaurants.length===0? <Shimmer />: (
         <div className="body">
 
-            <div className="filter">
-                <div className='search'>
-                    <input type='text' className='search-box' value={searchText} onChange={(e)=>{
+            <div className="filter flex">
+                <div className='search m-4 p-4'>
+                    <input type='text' className='search-box border border-solid border-black pl-2' placeholder="Enter your restaurant" value={searchText} onChange={(e)=>{
                         console.log(e.target.value);
                         setSearchText(e.target.value);
                     }}/>
 
-                    <button className='search-btn' onClick={()=>{
+                    <button className='search-btn px-4 py-2 bg-green-100 m-4 cursor-pointer rounded-lg' onClick={()=>{
                         // Filter the restaurant cards and update the UI
                         console.log(searchText);
                         const filteredRestaurant=listOfRestaurants.filter((res)=>res?.info?.name.toLowerCase().includes(searchText.toLowerCase()));
-                        setFilteredRestaurant(filteredRestaurant);  
+                        setFilteredRestaurant(filteredRestaurant);
 
                     }}>Search</button>
                 </div>
 
-                <button className='filter-btn' onClick={()=>{
+                <div className='m-4 p-4 flex items-center'>
+                    <button className='filter-btn px-4 py-2 bg-green-100 cursor-pointer rounded-lg' onClick={()=>{
+                        // filter logic
+                        const filteredList=listOfRestaurants.filter((res)=>res?.info?.avgRating>=4.3)
 
-                    // filter logic
-                    const filteredList=listOfRestaurants.filter((res)=>res?.info?.avgRating>=4.3)
-
-                    // update it in set List of restaurants
-                    setFilteredRestaurant(filteredList);
-                }}>Top Rated Restaurants</button>
+                        // update it in set List of restaurants
+                        setFilteredRestaurant(filteredList);
+                    }}>Top Rated Restaurants</button>
+                </div>
             </div>
 
-            <div className="res-container">
+            <div className="res-container flex flex-wrap">
 
                 {/* Passing the props to the component */}
                 {/* <RestaurantCard resData={reslist[0]}/>
                 <RestaurantCard resData={reslist[1]}/>
-                <RestaurantCard resData={reslist[2]}/>
+                <RestaurantCard resData={reslist[2]}/>`
                 <RestaurantCard resData={reslist[3]}/>
                 <RestaurantCard resData={reslist[4]}/>
                 <RestaurantCard resData={reslist[5]}/>
